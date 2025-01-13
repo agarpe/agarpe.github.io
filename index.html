@@ -14,6 +14,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
+            position: relative;
         }
         .container {
             background-color: #fff;
@@ -21,8 +23,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
-            max-width: 800px;
+            max-width: 800px; /* Increased width */
             width: 100%;
+            position: relative;
+            transition: transform 0.5s ease;
         }
         h2 {
             margin-top: 0;
@@ -63,6 +67,38 @@
         .skill:hover {
             background-color: #0056b3;
         }
+        .image-box {
+            position: absolute;
+            right: -400px; /* Initially hidden off-screen */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            background-image: url('https://via.placeholder.com/300'); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: right 0.5s ease;
+        }
+        .btns {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -82,17 +118,9 @@
                 <a href="https://raw.githubusercontent.com/agarpe/AliciaGarridoPena-CV/main/AliciaGarridoPena_CV.pdf">View CV</a>
             </p>
         </div>
-        <div class="section">
-            <h3>Main Publications</h3>
-            <p>
-                <!-- Add your publications here -->
-                1. Garrido-Peña, A., Sanchez-Martin, P., Reyes-Sanchez, M., Levi, R., Rodriguez, F. B., Castilla, J., Tornero, J., & Varona, P. (2024). Modulation of neuronal dynamics by sustained and activity-dependent continuous-wave near-infrared laser stimulation Publisher: SPIE. Neurophotonics, 11(2), 024308. https://doi.org/10.1117/1.NPh.11.2.
-024308<br>
-                2. Garrido-Peña, A., Elices, I., & Varona, P. (2021). Characterization of interval variability in the sequential activity of a central pattern generator model. Neurocomputing, 461, 667–678. https://doi.org/10.1016/j.neucom.2020.08.093 <br>
-
-                3. Ellison, L., Raiser, G., Garrido-Peña, A., Kemenes, G., & Nowotny, T. (2024). SSSort 2.0: A semi-automated spike detection and sorting system for single sensillum recordings. Journal of Neuroscience Methods, 110351. https://doi.org/10.1016/j.jneumeth.2024.110351 <br>
-
-            </p>
+        <div class="btns">
+            <button class="btn" onclick="showImage()">Show Image</button>
+            <button class="btn" onclick="hideImage()">Hide Image</button>
         </div>
         <div class="skills">
             <div class="skill">Electrophysiology</div>
@@ -101,5 +129,18 @@
             <div class="skill">Laser Stimulation</div>
         </div>
     </div>
+    <div class="image-box"></div>
+
+    <script>
+        function showImage() {
+            document.querySelector('.container').style.transform = 'translateX(-400px)';
+            document.querySelector('.image-box').style.right = '50px';
+        }
+
+        function hideImage() {
+            document.querySelector('.container').style.transform = 'translateX(0)';
+            document.querySelector('.image-box').style.right = '-400px';
+        }
+    </script>
 </body>
 </html>
