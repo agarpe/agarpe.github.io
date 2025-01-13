@@ -118,23 +118,19 @@
                 <a href="https://raw.githubusercontent.com/agarpe/AliciaGarridoPena-CV/main/AliciaGarridoPena_CV.pdf">View CV</a>
             </p>
         </div>
-        <div class="btns">
-            <button class="btn" onclick="showImage()">Show Image</button>
-            <button class="btn" onclick="hideImage()">Hide Image</button>
-        </div>
         <div class="skills">
-            <div class="skill">Electrophysiology</div>
-            <div class="skill">Computational Models</div>
-            <div class="skill">Activity-Dependent Protocols</div>
-            <div class="skill">Laser Stimulation</div>
+            <div class="btn" onclick="showImage()">Electrophysiology</button>
+            <div class="btn" onclick="showImage()">Computational Models</button>
+            <div class="btn" onclick="showImage()">Activity-Dependent Protocols</button>
+            <div class="btn" onclick="showImage()">Laser Stimulation</button>
         </div>
     </div>
     <div class="image-box"></div>
 
     <script>
         function showImage() {
-            document.querySelector('.container').style.transform = 'translateX(-400px)';
-            document.querySelector('.image-box').style.right = '50px';
+              document.querySelector('.container').style.transform = 'translateX(-400px)';
+             document.querySelector('.image-box').style.right = '50px';
         }
 
         function hideImage() {
