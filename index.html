@@ -131,20 +131,21 @@
 
         
         <div class="skills">
-            <button class="btn" onclick="showImage()">Electrophysiology</button>
-            <button class="btn" onclick="showImage()">Computational Models</button>
-            <button class="btn" onclick="showImage()">Activity-Dependent Protocols</button>
-            <button class="btn" onclick="showImage()">Laser Stimulation</button>
+            <button class="btn" onclick="showImage('https://github.com/agarpe/agarpe.github.io/blob/main/current%20injection.png')">Electrophysiology</button>
+            <button class="btn" onclick="showImage('https://github.com/agarpe/agarpe.github.io/blob/main/figure1a.eps')">Computational Models</button>
+            <button class="btn" onclick="showImage('https://github.com/agarpe/agarpe.github.io/blob/main/activity_dependent_protocol.png')">Activity-Dependent Protocols</button>
+            <button class="btn" onclick="showImage('https://github.com/agarpe/agarpe.github.io/blob/main/ejemplo_laser_y_electrodo_en_neuronas.png')">Laser Stimulation</button>
         </div>
     </div>
     <div class="image-box"></div>
 
     <script>
-        function showImage() {
-              document.querySelector('.container').style.transform = 'translateX(-400px)';
-             document.querySelector('.image-box').style.right = '50px';
+       function showImage(imageUrl) {
+            const imageBox = document.querySelector('.image-box');
+            imageBox.style.backgroundImage = `url(${imageUrl})`; // Set the background image dynamically
+            document.querySelector('.container').style.transform = 'translateX(-400px)';
+            imageBox.style.right = '50px';
         }
-
         function hideImage() {
             document.querySelector('.container').style.transform = 'translateX(0)';
             document.querySelector('.image-box').style.right = '-400px';
