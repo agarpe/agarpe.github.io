@@ -147,23 +147,41 @@
             const imageBox = document.querySelector('.image-box');
 
             if (!isVisible) {
-                // Create an img element and calculate size
+                // Create an img element and load the image
                 const img = new Image();
                 img.src = imageUrl;
 
                 img.onload = function () {
-                    // Set the dimensions of the box to match the image
-                    imageBox.style.width = `${img.naturalWidth}px`;
-                    imageBox.style.height = `${img.naturalHeight}px`;
+                    const availableWidth = window.innerWidth - container.offsetWidth - 50; // Space left on the right
+                    const availableHeight = window.innerHeight - 50; // Space at the bottom of the screen
+                    const aspectRatio = img.naturalWidth / img.naturalHeight;
+
+                    // Calculate the maximum dimensions while maintaining aspect ratio
+                    let newWidth = availableWidth;
+                    let newHeight = availableWidth / aspectRatio;
+
+                    if (newHeight > availableHeight) {
+                        newHeight = availableHeight;
+                        newWidth = availableHeight * aspectRatio;
+                    }
+
+                    // Set the dimensions of the box
+                    imageBox.style.width = `${newWidth}px`;
+                    imageBox.style.height = `${newHeight}px`;
 
                     // Show the image
-                    imageBox.innerHTML = ''; // Clear previous content
+                    imageBox.innerHTML = ''; // Clear any previous content
+                    img.style.width = '100%'; // Ensure the image fits the box
+                    img.style.height = '100%';
+                    img.style.borderRadius = '8px'; // Optional: match the box styling
                     imageBox.appendChild(img); // Add the image to the box
+
+                    // Move the container and make the image visible
                     container.style.transform = 'translateX(-300px)';
-                    imageBox.style.right = '100px';
+                    imageBox.style.right = '50px'; // Show the box on the right
                 };
             } else {
-                // Hide the image
+                // Hide the image and reset the container
                 container.style.transform = 'translateX(0)';
                 imageBox.style.right = '-400px';
                 imageBox.innerHTML = ''; // Clear the image
