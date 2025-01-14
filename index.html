@@ -132,7 +132,7 @@
         
         <div class="skills">
             <button class="btn" onclick="toggleImage('current injection.png')">Electrophysiology</button>
-            <button class="btn" onclick="toggleImage('activity_dependent_protocol.png')">Computational Models</button>
+            <button class="btn" onclick="toggleImage('model.png')">Computational Models</button>
             <button class="btn" onclick="toggleImage('activity_dependent_protocol.png')">Activity-Dependent Protocols</button>
             <button class="btn" onclick="toggleImage('ejemplo_laser_y_electrodo_en_neuronas.png')">Laser Stimulation</button>
         </div>
@@ -149,9 +149,9 @@
             if (!isVisible) {
                 // Show the image
                 imageBox.style.backgroundImage = `url(${imageUrl})`;
-                container.style.transform = 'translateX(-400px)';
+                container.style.transform = 'translateX(-300px)';
                 imageBox.style.right = '50px';
-                imageBox.style.width = '300px';
+                imageBox.style.width = '500px';
             } else {
                 // Hide the image
                 container.style.transform = 'translateX(0)';
