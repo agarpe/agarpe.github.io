@@ -147,15 +147,26 @@
             const imageBox = document.querySelector('.image-box');
 
             if (!isVisible) {
-                // Show the image
-                imageBox.style.backgroundImage = `url(${imageUrl})`;
-                container.style.transform = 'translateX(-300px)';
-                imageBox.style.right = '100px';
-                imageBox.style.width = '500px';
+                // Create an img element and calculate size
+                const img = new Image();
+                img.src = imageUrl;
+
+                img.onload = function () {
+                    // Set the dimensions of the box to match the image
+                    imageBox.style.width = `${img.naturalWidth}px`;
+                    imageBox.style.height = `${img.naturalHeight}px`;
+
+                    // Show the image
+                    imageBox.innerHTML = ''; // Clear previous content
+                    imageBox.appendChild(img); // Add the image to the box
+                    container.style.transform = 'translateX(-300px)';
+                    imageBox.style.right = '400px';
+                };
             } else {
                 // Hide the image
                 container.style.transform = 'translateX(0)';
-                imageBox.style.right = '-500px';
+                imageBox.style.right = '-400px';
+                imageBox.innerHTML = ''; // Clear the image
             }
 
             // Toggle the flag
