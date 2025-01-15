@@ -152,7 +152,7 @@
                 img.src = imageUrl;
 
                 img.onload = function () {
-                    const availableWidth = window.innerWidth - container.offsetWidth - 200; // Space left on the right
+                    const availableWidth = window.innerWidth - (container.offsetWidth - 200); // Space left on the right
                     const availableHeight = window.innerHeight - 50; // Space at the bottom of the screen
                     const aspectRatio = img.naturalWidth / img.naturalHeight;
 
