@@ -49,13 +49,13 @@ a {
     padding: 10px 15px;
     text-decoration: none;
     color: #fff;
-    background-color: #007bff;
+    background-color: #288c95ab;
     border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
 a:hover {
-    background-color: #0056b3;
+    background-color: #288c95ab;
 }
 
 .section {
@@ -69,7 +69,7 @@ a:hover {
 }
 
 .skill {
-    background-color: #007bff;
+    background-color: #288c95ab;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -91,7 +91,7 @@ a:hover {
 
 .btn {
     padding: 5px 15px;
-    background-color: #007bff;
+    background-color: #288c95ab;
     color: white;
     border: none;
     border-radius: 10px;
@@ -100,7 +100,7 @@ a:hover {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #288c95ab;
 }
 
 
