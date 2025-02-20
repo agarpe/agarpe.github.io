@@ -1,4 +1,4 @@
-body {
+body, html {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
@@ -6,7 +6,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     overflow: auto; /* Allow scrolling */
     position: relative;
     flex-direction: column;
@@ -22,6 +23,7 @@ body {
     width: 100%;
     position: relative;
     transition: transform 0.5s ease-in-out;
+    margin: 20px; /* Add some margin to avoid touching the edges */
 }
 
 h2 {
@@ -112,24 +114,26 @@ a:hover {
 
 /* Adjustments for mobile */
 @media (max-width: 768px) {
-    body {
+    body, html {
         overflow: auto; /* Allow scrolling on mobile */
     }
 
     .container {
         transform: translateX(0) !important;
-        max-width: 70%;
+        max-width: 90%;
+        margin: 10px; /* Reduce margin for smaller screens */
     }
 
     .image-box {
         position: static;
         width: 100%;
-        max-width: 70%;
+        max-width: 100%; /* Ensure it fits within the viewport */
         height: auto;
         margin-top: 20px;
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        right: 0; /* Reset the right position */
     }
 
     .image-box.visible {
