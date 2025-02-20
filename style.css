@@ -118,13 +118,13 @@ a:hover {
 
     .container {
         transform: translateX(0) !important;
-        max-width: 90%;
+        max-width: 70%;
     }
 
     .image-box {
         position: static;
         width: 100%;
-        max-width: 90%;
+        max-width: 70%;
         height: auto;
         margin-top: 20px;
         opacity: 0;
