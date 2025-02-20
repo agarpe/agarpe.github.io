@@ -7,6 +7,7 @@ body, html {
     justify-content: center;
     align-items: flex-start;
     height: 100%;
+    min-height: 100vh;
     width: 100%;
     overflow: auto; /* Allow scrolling */
     position: relative;
@@ -24,7 +25,8 @@ body, html {
     width: 100%;
     position: relative;
     transition: transform 0.5s ease-in-out;
-    margin: 20px; /* Add some margin to avoid touching the edges */
+    margin: 20px 0; /* Add margin to avoid touching the edges */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
 }
 
 h2 {
