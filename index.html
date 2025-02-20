@@ -61,43 +61,43 @@
 
     <script>
         let isVisible = false; // Flag to track visibility state
-    
+
         function toggleImage(imageUrl) {
             const container = document.querySelector('.container');
             const imageBox = document.querySelector('.image-box');
-    
+
             // Check if the screen is mobile (width < 768px)
             const isMobile = window.innerWidth < 768;
-    
+
             if (!isVisible) {
                 // Create an img element and load the image
                 const img = new Image();
                 img.src = imageUrl;
-    
+
                 img.onload = function () {
                     const availableWidth = isMobile ? window.innerWidth - 40 : window.innerWidth - (container.offsetWidth + 50); 
                     const availableHeight = isMobile ? window.innerHeight * 0.4 : window.innerHeight - 50;
                     const aspectRatio = img.naturalWidth / img.naturalHeight;
-    
+
                     let newWidth = availableWidth;
                     let newHeight = availableWidth / aspectRatio;
-    
+
                     if (newHeight > availableHeight) {
                         newHeight = availableHeight;
                         newWidth = availableHeight * aspectRatio;
                     }
-    
+
                     // Set the dimensions of the image box
                     imageBox.style.width = `${newWidth}px`;
                     imageBox.style.height = `${newHeight}px`;
-    
+
                     // Show the image
                     imageBox.innerHTML = ''; 
                     img.style.width = '100%'; 
                     img.style.height = '100%';
                     img.style.borderRadius = '8px';
                     imageBox.appendChild(img);
-    
+
                     // Move the container
                     if (isMobile) {
                         container.style.transform = 'translateY(-50px)'; // Move up on mobile
@@ -119,9 +119,10 @@
                 imageBox.style.top = isMobile ? 'auto' : '50%';
                 imageBox.innerHTML = '';
             }
-    
+
             isVisible = !isVisible;
         }
+
     </script>
     
 </body>

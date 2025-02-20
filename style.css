@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto; /* Allow scrolling */
     position: relative;
     flex-direction: column;
 }
@@ -73,7 +73,7 @@ a:hover {
 
 .image-box {
     position: absolute;
-    right: -400px; /* Inicialmente oculta */
+    right: -400px; /* Initially hidden */
     top: 50%;
     transform: translateY(-50%);
     width: auto;
@@ -88,6 +88,7 @@ a:hover {
     transition: all 0.5s ease-in-out;
 }
 
+/* Button styles */
 .btns {
     margin-top: 20px;
     display: flex;
@@ -109,10 +110,10 @@ a:hover {
     background-color: #0056b3;
 }
 
-/* Ajustes para móviles */
+/* Adjustments for mobile */
 @media (max-width: 768px) {
     body {
-        overflow: auto;
+        overflow: auto; /* Allow scrolling on mobile */
     }
 
     .container {
