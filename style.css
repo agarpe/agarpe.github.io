@@ -11,6 +11,7 @@ body, html {
     overflow: auto; /* Allow scrolling */
     position: relative;
     flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .container {
@@ -88,7 +89,9 @@ a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease-in-out;
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
+
 
 /* Button styles */
 .btns {
@@ -111,33 +114,24 @@ a:hover {
 .btn:hover {
     background-color: #0056b3;
 }
-
 /* Adjustments for mobile */
 @media (max-width: 768px) {
-    body, html {
-        overflow: auto; /* Allow scrolling on mobile */
-    }
-
-    .container {
-        transform: translateX(0) !important;
-        max-width: 90%;
-        margin: 10px; /* Reduce margin for smaller screens */
-    }
-
     .image-box {
-        position: static;
-        width: 100%;
-        max-width: 100%; /* Ensure it fits within the viewport */
-        height: auto;
-        margin-top: 20px;
+        position: fixed; /* Use fixed positioning for mobile */
+        top: auto;
+        bottom: 20px; /* Position at the bottom */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        max-width: 90%; /* Ensure it fits within the viewport */
+        max-height: 40vh; /* Limit height to avoid cropping */
+        right: auto;
+        margin: 0 auto; /* Center the box */
         opacity: 0;
-        transform: translateY(20px);
         transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        right: 0; /* Reset the right position */
     }
 
     .image-box.visible {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0); /* Center and show */
     }
 }

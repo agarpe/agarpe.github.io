@@ -65,44 +65,44 @@
         function toggleImage(imageUrl) {
             const container = document.querySelector('.container');
             const imageBox = document.querySelector('.image-box');
-
+        
             // Check if the screen is mobile (width < 768px)
             const isMobile = window.innerWidth < 768;
-
+        
             if (!isVisible) {
                 // Create an img element and load the image
                 const img = new Image();
                 img.src = imageUrl;
-
+        
                 img.onload = function () {
-                    const availableWidth = isMobile ? window.innerWidth - 40 : window.innerWidth - (container.offsetWidth + 50); 
+                    // Calculate available space for the image
+                    const availableWidth = isMobile ? window.innerWidth * 0.9 : window.innerWidth - (container.offsetWidth + 50);
                     const availableHeight = isMobile ? window.innerHeight * 0.4 : window.innerHeight - 50;
                     const aspectRatio = img.naturalWidth / img.naturalHeight;
-
+        
                     let newWidth = availableWidth;
                     let newHeight = availableWidth / aspectRatio;
-
+        
                     if (newHeight > availableHeight) {
                         newHeight = availableHeight;
                         newWidth = availableHeight * aspectRatio;
                     }
-
+        
                     // Set the dimensions of the image box
                     imageBox.style.width = `${newWidth}px`;
                     imageBox.style.height = `${newHeight}px`;
-
+        
                     // Show the image
-                    imageBox.innerHTML = ''; 
-                    img.style.width = '100%'; 
+                    imageBox.innerHTML = '';
+                    img.style.width = '100%';
                     img.style.height = '100%';
                     img.style.borderRadius = '8px';
                     imageBox.appendChild(img);
-
-                    // Move the container
+        
+                    // Move the container and position the image box
                     if (isMobile) {
-                        container.style.transform = 'translateY(-50px)'; // Move up on mobile
-                        imageBox.style.top = 'calc(100% + 20px)'; // Show below container
-                        imageBox.style.right = 'auto';
+                        container.style.transform = 'translateY(-50px)'; // Move container up
+                        imageBox.style.bottom = '20px'; // Position image box at the bottom
                         imageBox.style.left = '50%';
                         imageBox.style.transform = 'translateX(-50%)';
                     } else {
@@ -111,7 +111,7 @@
                         imageBox.style.top = '50%';
                         imageBox.style.transform = 'translateY(-50%)';
                     }
-
+        
                     // Make the image-box visible
                     imageBox.classList.add('visible');
                 };
@@ -123,11 +123,9 @@
                 imageBox.innerHTML = '';
                 imageBox.classList.remove('visible'); // Hide the image box
             }
-
+        
             isVisible = !isVisible;
         }
-
-
     </script>
     
 </body>
