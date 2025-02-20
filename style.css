@@ -29,6 +29,7 @@ body, html {
     overflow-y: auto; /* Allow vertical scrolling if content overflows */
     max-width: 90%; /* Ensure it fits within the viewport */
     margin: 20px auto; /* Center the container */
+    box-sizing: border-box;
 }
 
 h2 {
@@ -78,24 +79,6 @@ a:hover {
     background-color: #0056b3;
 }
 
-.image-box {
-    position: absolute;
-    right: -400px; /* Initially hidden */
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
-    height: auto;
-    max-width: 40%;
-    max-height: 80%;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease-in-out;
-    overflow: hidden; /* Prevent content from overflowing */
-}
-
 
 /* Button styles */
 .btns {
@@ -118,11 +101,30 @@ a:hover {
 .btn:hover {
     background-color: #0056b3;
 }
-/* Adjustments for mobile */
+
+
+.image-box {
+    position: absolute;
+    right: -400px; /* Initially hidden */
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    max-width: 40%;
+    max-height: 80%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
 @media (max-width: 768px) {
     .container {
-        transform: translateX(0) !important; /* Reset transform on mobile */
         max-width: 95%; /* Slightly smaller to fit within the viewport */
+        transform: translateX(0) !important; /* Reset transform on mobile */
     }
 
     .image-box {
