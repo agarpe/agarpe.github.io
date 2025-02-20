@@ -111,6 +111,9 @@
                         imageBox.style.top = '50%';
                         imageBox.style.transform = 'translateY(-50%)';
                     }
+
+                    // Make the image-box visible
+                    imageBox.classList.add('visible');
                 };
             } else {
                 // Hide the image and reset
@@ -118,10 +121,12 @@
                 imageBox.style.right = isMobile ? 'auto' : '-400px';
                 imageBox.style.top = isMobile ? 'auto' : '50%';
                 imageBox.innerHTML = '';
+                imageBox.classList.remove('visible'); // Hide the image box
             }
 
             isVisible = !isVisible;
         }
+
 
     </script>
     
