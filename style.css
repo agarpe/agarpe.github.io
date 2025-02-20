@@ -21,12 +21,14 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    max-width: 700px;
+    /* max-width: 700px; */
     width: 100%;
     position: relative;
     transition: transform 0.5s ease-in-out;
-    margin: 20px 0; /* Add margin to avoid touching the edges */
+    /* margin: 20px 0; Add margin to avoid touching the edges */
     overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    max-width: 90%; /* Ensure it fits within the viewport */
+    margin: 20px auto; /* Center the container */
 }
 
 h2 {
@@ -91,7 +93,7 @@ a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease-in-out;
-    overflow: hidden; /* Ensure content doesn't overflow */
+    overflow: hidden; /* Prevent content from overflowing */
 }
 
 
@@ -118,6 +120,11 @@ a:hover {
 }
 /* Adjustments for mobile */
 @media (max-width: 768px) {
+    .container {
+        transform: translateX(0) !important; /* Reset transform on mobile */
+        max-width: 95%; /* Slightly smaller to fit within the viewport */
+    }
+
     .image-box {
         position: fixed; /* Use fixed positioning for mobile */
         top: auto;
