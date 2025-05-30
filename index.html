@@ -56,7 +56,7 @@
         </p>     
     </div>
     
-    <div class="image-box" style="margin-top: 30px;"></div>
+    <div class="image-box"></div>
 
     <script>
         let isVisible = false; // Flag to track visibility state
@@ -85,6 +85,11 @@
         
                 // Gently scroll to image
                 imageBox.scrollIntoView({ behavior: 'smooth' });
+            };
+            img.onerror = function () {
+                imageBox.innerHTML = '<p>Error loading image.</p>';
+                imageBox.style.display = 'block';
+                imageBox.dataset.current = '';
             };
         }
 
