@@ -63,7 +63,7 @@
     <script>
         let isVisible = false; // Flag to track visibility state
 
-        function toggleImage(imageUrl) {
+        function toggleImage(imageUrl, altText) {
             const imageBox = document.querySelector('.image-box');
         
             // Si ya está visible la misma imagen, la oculta
@@ -77,7 +77,7 @@
             // Load and show image
             const img = new Image();
             img.src = imageUrl;
-            img.alt = 'Imagen relacionada con la investigación';
+            img.alt = altText;
         
             img.onload = () => {
                 imageBox.innerHTML = ''; // Remove previous images
