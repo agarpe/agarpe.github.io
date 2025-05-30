@@ -65,30 +65,32 @@
         let isVisible = false; // Flag to track visibility state
 
         function toggleImage(imageUrl) {
-    const imageBox = document.querySelector('.image-box');
+            const imageBox = document.querySelector('.image-box');
+        
+            // Si ya está visible la misma imagen, la oculta
+            if (imageBox.dataset.current === imageUrl) {
+                imageBox.style.display = 'none';
+                imageBox.innerHTML = '';
+                imageBox.dataset.current = '';
+                return;
+            }
+        
+            // Carga y muestra una nueva imagen
+            const img = new Image();
+            img.src = imageUrl;
+            img.alt = 'Imagen relacionada con la investigación';
+        
+            img.onload = () => {
+                imageBox.innerHTML = ''; // Limpia imágenes anteriores
+                imageBox.appendChild(img);
+                imageBox.style.display = 'block';
+                imageBox.dataset.current = imageUrl;
+        
+                // Desplaza suavemente hasta la imagen
+                imageBox.scrollIntoView({ behavior: 'smooth' });
+            };
+        }
 
-    if (imageBox.dataset.current === imageUrl) {
-        // If the same image is clicked again, hide it
-        imageBox.style.display = 'none';
-        imageBox.innerHTML = '';
-        imageBox.dataset.current = '';
-        return;
-    }
-
-    const img = new Image();
-    img.src = imageUrl;
-    img.alt = 'Selected research image';
-
-    img.onload = () => {
-        imageBox.innerHTML = '';
-        imageBox.appendChild(img);
-        imageBox.style.display = 'block';
-        imageBox.dataset.current = imageUrl;
-
-        // Scroll down to image
-        imageBox.scrollIntoView({ behavior: 'smooth' });
-    };
-}
 
     </script>
     
