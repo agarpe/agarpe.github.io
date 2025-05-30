@@ -24,10 +24,10 @@
             </p>
 
         <div class="skills">
-            <button class="btn" onclick="toggleImage('current injection.png')">Electrophysiology</button>
-            <button class="btn" onclick="toggleImage('model.png')">Computational Models</button>
-            <button class="btn" onclick="toggleImage('activity_dependent_protocol.png')">Activity-Dependent Protocols</button>
-            <button class="btn" onclick="toggleImage('ejemplo_laser_y_electrodo_en_neuronas.png')">Laser Stimulation</button>
+            <button class="btn" onclick="toggleImage('current injection.png', "Electrophysiology illustration")">Electrophysiology</button>
+            <button class="btn" onclick="toggleImage('model.png', "Result of a computational model simulation")">Computational Models</button>
+            <button class="btn" onclick="toggleImage('activity_dependent_protocol.png', "Diagram of an activity dependent closed-loop experimental protocol")">Activity-Dependent Protocols</button>
+            <button class="btn" onclick="toggleImage('ejemplo_laser_y_electrodo_en_neuronas.png', "Photograph of laser stimulation on single neurons")">Laser Stimulation</button>
         </div>
             <p>
                 I am currently continuing that work and also exploring new paths such as the model of complex networks for cognitive neuroscience and the neurological problems caused by the use of smartphones. 
@@ -40,7 +40,6 @@
         <div class="section">
     <h3>Main Publications</h3>
     <p>
-        <!-- Add your publications here -->
         1. Garrido-Peña, A., Sanchez-Martin, P., Reyes-Sanchez, M., Levi, R., Rodriguez, F. B., Castilla, J., Tornero, J., & Varona, P. (2024). Modulation of neuronal dynamics by sustained and activity-dependent continuous-wave near-infrared laser stimulation Publisher: SPIE. Neurophotonics, 11(2), 024308. https://doi.org/10.1117/1.NPh.11.2.
 024308<br>
         2. Garrido-Peña, A., Elices, I., & Varona, P. (2021). Characterization of interval variability in the sequential activity of a central pattern generator model. Neurocomputing, 461, 667–678. https://doi.org/10.1016/j.neucom.2020.08.093 <br>
@@ -75,18 +74,18 @@
                 return;
             }
         
-            // Carga y muestra una nueva imagen
+            // Load and show image
             const img = new Image();
             img.src = imageUrl;
             img.alt = 'Imagen relacionada con la investigación';
         
             img.onload = () => {
-                imageBox.innerHTML = ''; // Limpia imágenes anteriores
+                imageBox.innerHTML = ''; // Remove previous images
                 imageBox.appendChild(img);
                 imageBox.style.display = 'block';
                 imageBox.dataset.current = imageUrl;
         
-                // Desplaza suavemente hasta la imagen
+                // Gently scroll to image
                 imageBox.scrollIntoView({ behavior: 'smooth' });
             };
         }
