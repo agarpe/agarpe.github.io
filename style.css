@@ -129,21 +129,14 @@ a:hover {
     }
 
     .image-box {
-        position: fixed; /* Use fixed positioning for mobile */
-        top: auto;
-        bottom: 20px; /* Position at the bottom */
-        left: 50%;
-        transform: translateX(-50%); /* Center horizontally */
-        max-width: 90%; /* Ensure it fits within the viewport */
-        max-height: 40vh; /* Limit height to avoid cropping */
-        right: auto;
-        margin: 0 auto; /* Center the box */
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    text-align: center;
+    padding: 10px;
+    display: none;
+    }
+    .image-box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
     }
 
-    .image-box.visible {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0); /* Center and show */
-    }
 }
