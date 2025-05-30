@@ -59,75 +59,37 @@
 
         
     </div>
-    <div class="image-box"></div>
+    <div class="image-box" style="margin-top: 30px;"></div>
 
     <script>
         let isVisible = false; // Flag to track visibility state
 
         function toggleImage(imageUrl) {
-            const container = document.querySelector('.container');
-            const imageBox = document.querySelector('.image-box');
+    const imageBox = document.querySelector('.image-box');
 
-            // Check if the screen is mobile (width < 768px)
-            const isMobile = window.innerWidth < 768;
+    if (imageBox.dataset.current === imageUrl) {
+        // If the same image is clicked again, hide it
+        imageBox.style.display = 'none';
+        imageBox.innerHTML = '';
+        imageBox.dataset.current = '';
+        return;
+    }
 
-            if (!isVisible) {
-                // Create an img element and load the image
-                const img = new Image();
-                img.src = imageUrl;
+    const img = new Image();
+    img.src = imageUrl;
+    img.alt = 'Selected research image';
 
-                img.onload = function () {
-                    // Calculate available space for the image
-                    const availableWidth = isMobile ? window.innerWidth * 0.9 : window.innerWidth - (container.offsetWidth + 50);
-                    const availableHeight = isMobile ? window.innerHeight * 0.4 : window.innerHeight - 50;
-                    const aspectRatio = img.naturalWidth / img.naturalHeight;
+    img.onload = () => {
+        imageBox.innerHTML = '';
+        imageBox.appendChild(img);
+        imageBox.style.display = 'block';
+        imageBox.dataset.current = imageUrl;
 
-                    let newWidth = availableWidth;
-                    let newHeight = availableWidth / aspectRatio;
+        // Scroll down to image
+        imageBox.scrollIntoView({ behavior: 'smooth' });
+    };
+}
 
-                    if (newHeight > availableHeight) {
-                        newHeight = availableHeight;
-                        newWidth = availableHeight * aspectRatio;
-                    }
-
-                    // Set the dimensions of the image box
-                    imageBox.style.width = `${newWidth}px`;
-                    imageBox.style.height = `${newHeight}px`;
-
-                    // Show the image
-                    imageBox.innerHTML = '';
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.borderRadius = '8px';
-                    imageBox.appendChild(img);
-
-                    // Move the container and position the image box
-                    if (isMobile) {
-                        container.style.transform = 'translateY(-50px)'; // Move container up
-                        imageBox.style.bottom = '20px'; // Position image box at the bottom
-                        imageBox.style.left = '50%';
-                        imageBox.style.transform = 'translateX(-50%)';
-                    } else {
-                        container.style.transform = 'translateX(-300px)';
-                        imageBox.style.right = '50px';
-                        imageBox.style.top = '50%';
-                        imageBox.style.transform = 'translateY(-50%)';
-                    }
-
-                    // Make the image-box visible
-                    imageBox.classList.add('visible');
-                };
-            } else {
-                // Hide the image and reset
-                container.style.transform = 'translateX(0)';
-                imageBox.style.right = isMobile ? 'auto' : '-400px';
-                imageBox.style.top = isMobile ? 'auto' : '50%';
-                imageBox.innerHTML = '';
-                imageBox.classList.remove('visible'); // Hide the image box
-            }
-
-            isVisible = !isVisible;
-        }
     </script>
     
 </body>
