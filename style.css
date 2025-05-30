@@ -105,22 +105,20 @@ a:hover {
 
 
 .image-box {
-    position: absolute;
-    right: -400px; /* Initially hidden */
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
+    display: none; /* Oculto inicialmente */
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.image-box img {
+    max-width: 100%;
     height: auto;
-    max-width: 40%;
-    max-height: 80%;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease-in-out;
-    overflow: hidden; /* Prevent content from overflowing */
 }
+
 
 @media (max-width: 768px) {
     .container {
