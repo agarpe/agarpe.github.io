@@ -198,11 +198,11 @@
 <section>
   <h2>Temperature Change Model</h2>
   <p>
-    Simulations. The 3D temperature images of the water solution heating experimentally used in this work were simulated by solving numerically the heat transfer equation. This equation relates the space and time partial derivatives of the local temperature in an object with the energy deposited by heat sources and energy loss into the surrounding medium1. The heat transfer equation for inhomogeneous media reads as: <div>
+    Simulations. The 3D temperature images of the water solution heating experimentally used in this work were simulated by solving numerically the heat transfer equation. This equation relates the space and time partial derivatives of the local temperature in an object with the energy deposited by heat sources and energy loss into the surrounding medium.
+	The angle, lenses and distance to the preparation were considered for the simulations. The heat transfer equation for inhomogeneous media reads as: <div>
 		
 ∂T/∂t=1/ρc ∇(κ∇T)+q_v/ρc 
 	</div>
-	The angle, lenses and distance to the preparation were considered for the simulations. 
 	  </p>
 <p>	
 Here, T is the local temperature (in K), t the time (in s), ρ is the mass density of the object (in kg m-3), c is the specific heat capacity of the object (in J kg-1 K-1), κ is the thermal conductivity of the object (in W m-1 K-1), and qv is the externally supplied power per unit volume (in W m-3). In our experiments no heat sources are present, and therefore the terms involving qv can be disregarded. Supplementary Eq.1 has been solved numerically – using the appropriate boundary conditions – by a 3D-finite difference scheme using the Douglas-Gunn method, which provides a stable algorithm that is second-order accurate in both time and space derivatives2, 3. The application of suitable boundary conditions is necessary to consider mechanisms of energy loss from the object volume – in particular due to convection – and losses from radiation. Convection is suitably modelled according to Newton’s law of cooling1, which gives the heat flux density (dissipated power per unit area, in W m-2 units) due to convention mechanism through the surrounding medium:
